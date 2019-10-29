@@ -5,7 +5,7 @@ module.exports = function (app) {
     // Route for getting all Articles from the db
     // app.get("/articles", function (req, res)
     app.get("/", function (req, res) {
-        // Look at unsaved articles on loadup
+        // Look at unsaved articles on loadup only
         db.Article.find({
                 saved: false
             })
@@ -33,6 +33,7 @@ module.exports = function (app) {
             });
     });
 
+    // Route for grabbing saved articles only
     app.get("/saved", function (req, res) {
         db.Article.find({
                 saved: true
